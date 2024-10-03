@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'TripSans-Ultra';
+    src: url(fonts/TripSans-Ultra.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Bold';
+    src: url(fonts/TripSans-Bold.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Medium';
+    src: url(fonts/TripSans-Medium.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Regular';
+    src: url(fonts/TripSans-Regular.ttf);
+}
+
+
+main > .container{
+    padding: 45px 0;
+
+}
+
+a.btn.btn-lg{
+    font-family: 'TripSans-Medium';
+    background-color: #34e0a1;  
+}
+
+th{
+    font-family: 'TripSans-Bold';
+}
+
+td{
+    font-family: 'TripSans-Regular';
+}
+
+a#eliminar.btn.btn-warning.btn-sm{
+    font-family: 'TripSans-Medium';
+}
+

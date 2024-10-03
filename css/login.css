@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'TripSans-Ultra';
+    src: url(fonts/TripSans-Ultra.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Bold';
+    src: url(fonts/TripSans-Bold.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Medium';
+    src: url(fonts/TripSans-Medium.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Regular';
+    src: url(fonts/TripSans-Regular.ttf);
+}
+
+
+main>.container{
+    padding: 30px
+}
+
+.form-login{
+    max-width: 350px;
+}
+
+img#img-logo.img-fluid {
+    width: 40px; 
+    height: auto;
+}
+
+h2#login{
+    font-family: 'TripSans-Bold';
+    font-weight: 400;
+    font-size: 25px;
+    letter-spacing: -1px;
+}
+
+button.btn.ingresarUsuario{
+    background-color: #000;
+    color:white;
+    font-family: 'TripSans-Medium';
+    margin-top: 8px;
+    margin-bottom: 8px;
+   
+}
+
+button.btn.ingresarUsuario:hover{
+    background-color: #292929;
+    font-family: 'TripSans-Medium';
+}
+
+label{
+    margin-left: 4px;
+    color: #8a8a8a !important;
+}
+
+
+main.form-login.m-auto{
+    padding-top: 110px;
+}
+
+#inicia{
+    font-family: 'TripSans-Medium';
+ 
+}
+
+a{
+    font-family: 'TripSans-Regular';
+    color: inherit !important; 
+    text-decoration: underline !important;
+
+}
+
+span.p-login{
+    font-family: 'TripSans-Regular';
+}

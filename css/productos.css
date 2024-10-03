@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'TripSans-Ultra';
+    src: url(fonts/TripSans-Ultra.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Bold';
+    src: url(fonts/TripSans-Bold.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Medium';
+    src: url(fonts/TripSans-Medium.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Regular';
+    src: url(fonts/TripSans-Regular.ttf);
+}
+
+a {
+    color: inherit;          /* Hereda el color del elemento padre */
+    text-decoration: none;   /* Quita el subrayado */
+    background: none;       /* Quita el fondo (si lo hay) */
+    padding: 0;             /* Quita el padding */
+    margin: 0;              /* Quita el margen */
+    border: none;           /* Quita el borde (si lo hay) */
+    cursor: auto;           /* Cambia el cursor a uno por defecto (opcional) */
+}
+
+
+div a.btn.rounded-pill.detalles{
+    
+    color: black;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-family: 'TripSans-Medium';
+    background-color: #f2b203;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+div a.btn.rounded-pill.detalles:hover {
+    color: black;
+    background-color: #fdc735; 
+}
+
+div button.btn.rounded-pill.agregar{
+
+    color: black;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-family: 'TripSans-Medium';
+    background-color: #34e0a1;  
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+div button.btn.rounded-pill.agregar:hover {
+    color: black;
+    background-color: #61e2b3;
+}
+
+
+main > .container{
+    padding: 30px 0;
+    padding-left: 100px;
+    padding-right: 100px;
+}

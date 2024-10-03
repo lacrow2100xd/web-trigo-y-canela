@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'TripSans-Ultra';
+    src: url(fonts/TripSans-Ultra.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Bold';
+    src: url(fonts/TripSans-Bold.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Medium';
+    src: url(fonts/TripSans-Medium.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Regular';
+    src: url(fonts/TripSans-Regular.ttf);
+}
+
+.logo-name {
+    display: flex;
+    gap: 5px; 
+}
+
+img {
+    width: 40px; 
+    height: auto;
+}
+
+strong {
+    font-family: 'TripSans-Bold';
+    font-weight: 400;
+    font-size: 25px;
+    letter-spacing: -1px;
+}
+
+a.nav-link{
+    font-family: 'TripSans-Medium';
+}
+
+.bi-bag{
+    color: black;
+    font-size: 28px;
+} 
+
+a.nav-link.btn.rounded-pill{
+    padding-left: 10px;  
+    padding-right: 10px;
+
+    background-color: rgb(255, 255, 255)  ;  
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a.nav-link.btn.rounded-pill:hover {
+    background-color: #f0f0f0; 
+}
+
+#num_cart {
+    display: inline-block;
+    width: 20px; /* Tamaño del círculo */
+    height: 20px; /* Tamaño del círculo */
+    background-color: black; /* Fondo negro */
+    color: white; /* Texto blanco */
+    border-radius: 50%; /* Hace el span un círculo */
+    text-align: center; /* Centra el texto horizontalmente */
+    line-height: 20px; /* Centra el texto verticalmente */
+    font-size: 12px; /* Tamaño de la letra */
+    
+    position: absolute; /* Posiciona el span relativo al <a> */
+    top: 12px; /* Ajusta la posición arriba */
+    right: 4px; /* Ajusta la posición a la derecha */
+}
+
+
+a.btn.rounded-pill.inicioSesion{
+
+    color: rgb(255, 255, 255);
+    padding-left: 16px;
+    padding-right: 16px;
+    font-family: 'TripSans-Medium';
+    background-color: #000000;  
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a.btn.rounded-pill.inicioSesion:hover {
+    color: rgb(255, 255, 255);
+    background-color: #292929;
+}

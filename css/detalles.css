@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'TripSans-Ultra';
+    src: url(fonts/TripSans-Ultra.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Bold';
+    src: url(fonts/TripSans-Bold.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Medium';
+    src: url(fonts/TripSans-Medium.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Regular';
+    src: url(fonts/TripSans-Regular.ttf);
+}
+a {
+    color: inherit;          
+    text-decoration: none;   
+    background: none;       
+    padding: 0;             
+    margin: 0;              
+    border: none;           
+    cursor: auto;           
+}
+
+a:hover{
+    text-decoration: underline;
+    color: #8c8c8c;
+    cursor: pointer;
+}
+
+ol.breadcrumb{
+    padding-top: 45px;
+    padding-left: 209px;
+    padding-right: 209px;
+}
+
+
+main > .container{
+    padding-top: 3px;
+    padding-left: 100px;
+    padding-right: 100px;
+
+}   
+
+li span{
+    color: #8c8c8c;
+    font-family: 'TripSans-Regular';
+    font-size: 11px;
+}
+
+#comprarAhora{
+    background-color: #f2b203;
+    font-family: 'TripSans-Medium';
+}
+
+#agregarCarrito{
+    border: 2px solid #000000;
+    font-family: 'TripSans-Medium';
+}
+
+#agregarCarrito:hover{
+    background-color:   #000000;
+    font-family: 'TripSans-Medium';
+    color: white;
+}
+
+small.letraDescuento{
+    color: #00a650;  
+    font-family: 'TripSans-Regular';
+    
+}
+
+span.lead{
+    font-family: 'TripSans-Regular';
+    font-size: 5rem;
+}

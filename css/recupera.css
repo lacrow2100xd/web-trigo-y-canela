@@ -1,0 +1,28 @@
+.d-flex {
+    display: flex;
+    align-items: center; /* Alineación vertical */
+}
+#inicia {
+    margin: 0; /* Elimina el margen por defecto */
+    line-height: 1.5; /* Ajusta la línea de altura según sea necesario */
+}
+a {
+    margin-right: 0.5rem; /* Espacio entre el icono y el texto */
+}
+
+button.btn.btn-modal{
+    background-color: #000;
+    color:white;
+    font-family: 'TripSans-Medium';
+}
+
+
+button.btn.btn-modal:hover{
+    background-color: #292929;
+    font-family: 'TripSans-Medium';
+}
+
+#emailModalLabel{
+    font-family: 'TripSans-Medium';
+}
+
