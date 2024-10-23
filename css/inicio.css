@@ -1,0 +1,238 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    
+
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    height: 435px; /* Altura fija de 400px */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+    width: 100%; /* Ajusta el ancho a automático para mantener la proporción */
+    height: 435px; /* Altura fija de 400px */
+    object-fit: cover; /* Mantiene la relación de aspecto de la imagen */
+    object-position: center bottom; /* Enfoca la parte inferior de la imagen */
+    flex-shrink: 0;
+}
+
+
+.indicators {
+    position: absolute;
+    bottom: 10px; /* Ajusta la posición vertical */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.indicator {
+    height: 5px; /* Tamaño reducido */
+    width: 5px; /* Tamaño reducido */
+    margin: 0 4px; /* Ajusta la separación */
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6); /* Color blanco con opacidad */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.indicator.active {
+    background-color: #34e0a1; /* Color blanco para el indicador activo */
+}
+
+ /* Botones de navegación */
+ .slider .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: white;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+.slider:hover .nav-button {
+    display: block;
+}
+
+.nav-button.left {
+    left: 10px;
+}
+
+.nav-button.right {
+    right: 10px;
+}
+
+.nav-button:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#super-titulo{
+    font-family: 'TripSans-Ultra';
+    color:black;
+    font-size: 5.2rem;
+    line-height: 1;
+    letter-spacing: 5px;
+}
+
+.custom-container {
+    margin-top: 4rem;
+    padding-left: 200px; /* Ajusta el valor según lo que necesites */
+    padding-right: 200px; /* Ajusta el valor según lo que necesites */
+    background-image: url('../Img/Semillas.png'); /* Cambia esto por la ruta de tu imagen de fondo */
+    background-position: center;
+   
+}
+.custom-container2 {
+    margin-top: 4rem;
+    padding-left: 200px; /* Ajusta el valor según lo que necesites */
+    padding-right: 200px; /* Ajusta el valor según lo que necesites */
+    background-image: url('../Img/Semillas.png'); /* Cambia esto por la ruta de tu imagen de fondo */
+    background-position: center left;
+   
+}
+
+p{
+    font-family: 'TripSans-Regular';
+}
+
+.img-container {
+    width: 100%;        /* Asegura que el contenedor de la imagen use todo el ancho */
+    height: 400px;      /* Puedes ajustar esta altura como prefieras */
+    overflow: hidden;   /* Oculta cualquier parte de la imagen que sobresalga del contenedor */
+    position: relative; /* Establece el contenedor como relativo */
+}
+
+.img-container img {
+    position: absolute;  /* Permite que la imagen se posicione absolutamente */
+    top: 50%;            /* Centra verticalmente la imagen */
+    left: 50%;           /* Centra horizontalmente la imagen */
+    min-width: 80%;     /* Asegura que la imagen ocupe el 100% del ancho */
+    min-height: 80%;    /* Asegura que la imagen ocupe el 100% del alto */
+    transform: translate(-50%, -50%); /* Centra la imagen en el contenedor */
+}
+
+.titulos{
+    
+    font-family: 'TripSans-bold';
+}
+
+.card {
+    position: relative;
+    text-align: center;
+    padding-top: 40px; /* Espacio para la imagen */
+    min-height: 185px;
+ 
+}
+
+
+.card-text {
+    display: none; /* Oculta el texto por defecto */
+    margin-top: 10px;
+}
+
+.card-body {
+    position: relative;
+}
+
+.toggle-button {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.card img {
+    width: 70px;  /* Imagen más pequeña */
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+    top: -35px;  /* Ajusta para mantener la mitad de la imagen fuera del card */
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid white;
+}
+
+.svg-container {
+    position: absolute;
+    top: -35px; /* Ajusta la posición según lo que necesitas */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; /* Asegura que el SVG esté por encima de la imagen */
+    background-color: #34e0a1;  /* Fondo verde */
+    padding: 10px; /* Espaciado interno alrededor del SVG */
+    border-radius: 50%;
+}
+
+.container-icons{
+    margin-top: 9rem;
+    margin-bottom: 2rem;    
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+
+.card-title{
+    font-family: 'TripSans-medium';
+    color:black;
+}
+
+.no-hover:hover {
+    background-color: inherit; /* Mantiene el color de fondo original */
+    color: inherit; /* Mantiene el color de texto original */
+    border-color: inherit; /* Mantiene el color del borde original */
+}
+
+button.toggle-button.btn.btn-light.no-hover{
+    font-family: 'TripSans-Regular';
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0; /* Eliminar márgenes del body y html */
+    padding: 0; /* Eliminar relleno del body y html */
+    width: 100%; /* Asegura que el body y html ocupen el 100% del ancho */
+    height: 100%; /* Asegura que el body y html ocupen el 100% de la altura */
+    overflow-x: hidden;
+}
+
+.card {
+    margin: 0; /* Eliminar márgenes del card */
+}
+
+.content-container {
+    background-image: url('../Img/Fondo_Trigo.jpg'); /* Reemplaza con la URL de tu imagen */
+    background-size: cover; /* Ajusta la imagen para que cubra todo el fondo */
+    background-position: left center; /* Alinea la imagen a la izquierda y centrada verticalmente */
+    height: 100vh; /* Asegura que el contenedor tenga al menos la altura de la ventana */
+    width: 100vw; /* Asegura que el contenedor tenga el 100% del ancho de la ventana */
+    color: white; /* Cambia el color del texto para mayor visibilidad */
+    margin: 0; /* Elimina márgenes */
+    position: relative; /* Posiciona el contenedor relativo a la ventana */
+}
+
+.card-transparente{
+    background-color: white; /* Totalmente transparente */
+    border: none; /* Opcional: Elimina el borde de la tarjeta */
+}
+
+.custom-card {
+    width: 600px; /* Cambia este valor al ancho que desees */
+    margin: 0 auto; /* Centra la tarjeta horizontalmente */
+   
+    border: none; /* Elimina el borde del card */
+    box-shadow: none; /* Elimina la sombra del card */
+    padding: 0; /* Elimina el padding del card */
+}

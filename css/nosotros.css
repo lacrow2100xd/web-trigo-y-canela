@@ -1,0 +1,163 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Evitar scroll horizontal */
+}
+
+.banner {
+    background-image: url('../Img/quienes-somos-bg.jpg'); /* Reemplaza con la URL de tu imagen */
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center center; /* Centra la imagen */
+    width: 100vw; /* Ocupa el 100% del ancho de la ventana */
+    height: 435px; /* Ajusta la altura a la altura de la ventana */
+    display: flex; /* Usa flexbox para centrar el texto */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    position: relative;
+    color: white; /* Cambia el color del texto a blanco */
+}
+
+.banner-text h1 {
+    font-size: 48px; /* Tamaño del texto */
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para mejor visibilidad sobre la imagen */
+}
+
+
+
+.custom-container {
+    margin-top: 4rem;
+    padding-left: 200px; /* Ajusta el valor según lo que necesites */
+    padding-right: 200px; /* Ajusta el valor según lo que necesites */
+
+   
+}
+
+.img-container {
+    width: 100%;        /* Asegura que el contenedor de la imagen use todo el ancho */
+    height: 550px;      /* Puedes ajustar esta altura como prefieras */
+    overflow: hidden;   /* Oculta cualquier parte de la imagen que sobresalga del contenedor */
+    position: relative; /* Establece el contenedor como relativo */
+}
+
+.img-container img {
+    position: absolute;  /* Permite que la imagen se posicione absolutamente */
+    top: 50%;            /* Centra verticalmente la imagen */
+    left: 50%;           /* Centra horizontalmente la imagen */
+    min-width: 80%;     /* Asegura que la imagen ocupe el 100% del ancho */
+    min-height: 80%;    /* Asegura que la imagen ocupe el 100% del alto */
+    transform: translate(-50%, -50%); /* Centra la imagen en el contenedor */
+    width: 100%; /* Hace que la imagen ocupe el 100% del ancho */
+    height: 100%; /* Hace que la imagen ocupe el 100% de la altura */
+    object-fit: cover; /
+}
+
+#titulo-somos{
+    font-family: 'TripSans-Ultra';
+    font-size: 3.5rem;
+    line-height: 1.2;
+    
+}
+
+#subtitulo-somos{
+    font-family: 'TripSans-Bold';
+    font-size: 2.4rem;
+    line-height: 1.2;
+}
+
+.parrafo-grande{
+    font-family: 'TripSans-Regular';
+    font-size: 1.2rem;
+}
+
+span.resaltado{
+    color: #34e0a1;
+    font-family:  'TripSans-Medium';
+}
+
+
+.contenedor-lado-lado {
+    background-color: #fff7e1; /* Cambia el color de fondo */
+    padding: 20px; /* Añade un poco de espacio interior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Ajusta la altura al viewport */
+}
+
+
+.mensaje-movimiento{
+    font-size: 2rem; /* Tamaño del texto */
+    font-weight: bold; /* Negrita */
+}
+
+span.msj-verde{
+    color:#34e0a1; 
+}
+
+span.msj-dorado{
+    color:#f2b203;
+}
+
+.titulo{
+    font-family: 'TripSans-Bold';
+    font-size: 3.5rem;
+    line-height: 1.2;
+    
+}
+
+.contenedor-clientes{
+    background-color: #f2f1ec;
+}
+
+.slider {
+    width: 75vw; /* Ancho del slider */
+    height: auto; /* Altura automática */
+    margin: auto; /* Centrado en la página */
+    overflow: hidden; /* Oculta el desbordamiento */
+}
+
+.slider .slide-track {
+    display: flex; /* Disposición horizontal */
+    animation: scroll 40s linear infinite; /* Animación de desplazamiento */
+    -webkit-animation: scroll 40s linear infinite; /* Soporte para navegadores antiguos */
+    width: calc(200px * 14); /* Ancho total de las imágenes */
+}
+
+.slider .slide {
+    width: 250px; /* Ancho fijo para cada slide */
+    height: 150px; /* Altura fija para cada slide (ajusta según lo necesites) */
+    display: flex; /* Para centrar la imagen */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.slider .slide img {
+    width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    height: 100%; /* Ajusta la imagen a la altura del contenedor */
+    object-fit: contain; /* Mantiene la relación de aspecto */
+}
+
+@keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(calc(-200px * 7)); /* Desplazamiento completo */
+        transform: translateX(calc(-200px * 7)); /* Desplazamiento completo */
+    }
+}
+
+
+.contenedor-lado-lado-clientes {
+    background-color: #ffffff;/* Cambia el color de fondo */
+    padding: 20px; /* Añade un poco de espacio interior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Ajusta la altura al viewport */
+}

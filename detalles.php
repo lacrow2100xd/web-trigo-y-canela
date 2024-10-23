@@ -1,6 +1,6 @@
 <?php
-require 'config/config.php';
-require 'config/database.php';
+require_once 'config/config.php';
+require_once 'config/database.php';
 
 $db = new DataBase();
 $con = $db->conectar();
@@ -51,6 +51,7 @@ if($id == '' || $token == ''){
     <link rel="stylesheet" href="css/detalles.css">
    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     
@@ -74,7 +75,7 @@ if($id == '' || $token == ''){
               <a href="index.php" class="nav-link  btn rounded-pill">Inicio</a>
           </li>
           <li class="nav-item">
-              <a href="#" class="nav-link active btn rounded-pill">Productos</a>
+              <a href="productos.php" class="nav-link active btn rounded-pill">Productos</a>
           </li>
           <li class="nav-item">
               <a href="#" class="nav-link btn rounded-pill">Nosotros</a>
@@ -87,9 +88,25 @@ if($id == '' || $token == ''){
           </li>
         </ul>
         
-        <a href="checkout.php" class="btn bg-transparent border border-light position-relative">
+        <a href="checkout.php" class="btn bg-transparent border border-light position-relative me-2">
           <i class="bi bi-bag "></i><span id="num_cart" class="bagde bg-secundary"><?php echo $num_cart?></span>
         </a>
+
+        <?php if(isset($_SESSION['user_id'])){ ?> 
+          <div class="dropdown">
+            <button class="btn rounded-pill inicioSesion dropdown-toggle" type="button" id="btn_session" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa-solid fa-user"></i> 
+              <?php echo $_SESSION['user_name']; ?></a>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btn_session">
+              <a class="dropdown-item" href="logout.php">Cerrar sesión</a>
+              <a class="dropdown-item" href="compras.php">Mis compras</a>
+            </div>
+          </div>
+         
+        <?php } else { ?>
+          <a href="login.php" class="btn rounded-pill inicioSesion"> Iniciar sesión</a>
+        <?php } ?>
         
       </div>
 
@@ -111,7 +128,7 @@ if($id == '' || $token == ''){
     <div class="container">
         <div class="row">
             <div class="col-md-6 order-md-1">
-                <img src="Img/productos/<?php echo $row['imagen']?>.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                <img src="Img/productos/<?php echo $row['imagen']?>" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div class="col-md-6 order-md-2 d-flex flex-column">
                 <h2><?php echo $nombre ?> </h2>
@@ -119,14 +136,14 @@ if($id == '' || $token == ''){
 
                 <?php if($descuento > 0) { ?> 
 
-                    <span><del><?php echo MONEDA . number_format($precio, 3, '.' , ','); ?></del></span>
+                    <span><del><?php echo MONEDA . number_format($precio, 0, '.' , ','); ?></del></span>
                     <h2>
-                        <?php echo MONEDA . number_format($precio_desc, 3, '.' , ','); ?> 
+                        <?php echo MONEDA . number_format($precio_desc, 0, '.' , ','); ?> 
                         &nbsp;<small class="letraDescuento"><?php echo $descuento; ?>% OFF</small>
                     </h2>
                     <?php } else { ?> 
 
-                <h2><?php echo MONEDA . number_format($precio, 3, '.' , ','); ?> </h2>
+                <h2><?php echo MONEDA . number_format($precio, 0, '.' , ','); ?> </h2>
 
                 <?php } ?>
                 <br>
@@ -176,6 +193,13 @@ if($id == '' || $token == ''){
 
 <script src="../Util/js/jquery.min.js"></script>
 <script src="../Util/js/jquery.validate.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+<!-- Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 

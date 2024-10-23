@@ -1,9 +1,11 @@
 <?php
-require 'clases/clienteFunciones.php';
-require 'config/config.php';
-require 'config/database.php';
+require_once 'clases/clienteFunciones.php';
+require_once 'config/config.php';
+require_once 'config/database.php';
 $db = new Database();
 $con = $db->conectar();
+
+$proceso = isset($_GET['pago']) ? 'pago' : 'login';
 
 $errors = [];
 
@@ -12,6 +14,7 @@ if(!empty($_POST)){
  
     $usuario = trim($_POST['usuario']);
     $password = trim($_POST['password']);
+    $proceso = $_POST['proceso'] ?? 'login';
     
 
     if(esNulo([$usuario, $password])){
@@ -19,7 +22,7 @@ if(!empty($_POST)){
     }
     
     if(count($errors) == 0){
-        $errors[] = login($usuario, $password, $con);
+        $errors[] = login($usuario, $password, $con, $proceso);
     }
 }
 
@@ -86,6 +89,9 @@ if(!empty($_POST)){
         </div>
 
         <form class="row g-3" action="login.php" method="post" autocomplete="off">
+
+            <input type="hidden" name="proceso" value="<?php echo $proceso; ?>">
+
             <div class="form-floating">
                 <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Usuario">
                 <label for="usuario"> Usuario</label>

@@ -1,7 +1,7 @@
 <?php
-require 'config/config.php';
-require 'config/database.php';
-require 'vendor/autoload.php';
+require_once 'config/config.php';
+require_once 'config/database.php';
+require_once 'vendor/autoload.php';
 
 MercadoPago\SDK::setAccessToken(TOKEN_MP);
 
@@ -47,6 +47,7 @@ if($productos != null){
     <script src="https://www.paypal.com/sdk/js?client-id=<?php echo CLIENT_ID; ?>&currency=<?php echo CURRENCY; ?>"></script>
     <script src="https://sdk.mercadopago.com/js/v2"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     
 </head>
 <body>
@@ -71,7 +72,7 @@ if($productos != null){
               <a href="index.php" class="nav-link  btn rounded-pill">Inicio</a>
           </li>
           <li class="nav-item">
-              <a href="#" class="nav-link active btn rounded-pill">Productos</a>
+              <a href="productos.php" class="nav-link active btn rounded-pill">Productos</a>
           </li>
           <li class="nav-item">
               <a href="#" class="nav-link btn rounded-pill">Nosotros</a>
@@ -83,10 +84,26 @@ if($productos != null){
               <a href="#" class="nav-link btn rounded-pill">Tiendas</a>
           </li>
         </ul>
-        
-         <a href="carrito.php" class="btn bg-transparent border border-light position-relative">
+        <a href="checkout.php" class="btn bg-transparent border border-light position-relative me-2">
           <i class="bi bi-bag "></i><span id="num_cart" class="bagde bg-secundary"><?php echo $num_cart?></span>
         </a>
+
+        <?php if(isset($_SESSION['user_id'])){ ?> 
+          <div class="dropdown">
+            <button class="btn rounded-pill inicioSesion dropdown-toggle" type="button" id="btn_session" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa-solid fa-user"></i> 
+              <?php echo $_SESSION['user_name']; ?></a>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btn_session">
+              <a class="dropdown-item" href="logout.php">Cerrar sesión</a>
+              <a class="dropdown-item" href="compras.php">Mis compras</a>
+            </div>
+          </div>
+         
+        <?php } else { ?>
+          <a href="login.php" class="btn rounded-pill inicioSesion"> Iniciar sesión</a>
+        <?php } ?>
+         
         
       </div>
 
@@ -138,7 +155,7 @@ if($productos != null){
                             <td><?php echo $nombre; ?></td>                    
                             <td>
                                 <div id="subtotal_<?php echo $_id; ?>" name="subtotal[]"><?php echo MONEDA . 
-                                number_format($subtotal, 3, '.', ','); ?> </div>
+                                number_format($subtotal, 0, '.', ','); ?> </div>
                             </td>
                             </tr>
                             <?php } ?>
@@ -147,7 +164,7 @@ if($productos != null){
                                 <td></td>
                                 <td colspan="5">
                                     <p class="h4" id="total">
-                                        <?php echo MONEDA . number_format($total, 3, '.', ','); ?>
+                                        <?php echo MONEDA . number_format($total, 0, '.', ','); ?>
                                     </p>
                                 </td>
                             </tr>
@@ -225,8 +242,7 @@ $preference->save();
                         detalles: detalles
                     })
                 }).then(function (response) {
-                    // Después de que se complete la captura, redirige a index.php
-                    //window.location.href = '../index.php';
+                    window.location.href = '../trigo-y-canela/index.php';
                 });
             });
             },
@@ -257,9 +273,16 @@ $preference->save();
     </script>
 
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
+<!-- Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 </body>
 
 </html>
+

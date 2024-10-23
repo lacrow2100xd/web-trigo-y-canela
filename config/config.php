@@ -1,18 +1,45 @@
 <?php
 
+$path = dirname(__FILE__) . DIRECTORY_SEPARATOR;  
+
+require_once $path . 'database.php';
+require_once $path . '/../admin/clases/cifrado.php';
+
+$db = new DataBase();
+$con = $db->conectar();
+
+$sql = "SELECT nombre, valor FROM configuracion";
+$resultado = $con->query($sql);
+$datos = $resultado->fetchAll(PDO::FETCH_ASSOC);
+
+$config = [];
+
+foreach($datos as $dato){
+    $config[$dato['nombre']] = $dato['valor'];
+}
+
+
+//Configuracion del sistema
 define("SITE_URL", "http://localhost/trigo-y-canela");
-
-
-define('CLIENT_ID',"Abgb3Df95H4DiacyeLBEQ7imLvdnPWkxVEKUIcgO4fSnFpn8vycBsZJlE1b9OvO-QZqEsCLWybj90zxi");
-define('TOKEN_MP',"TEST-4868021780773026-092919-3ef007fb451a838823be741569237ef8-2010936843");
-define('CURRENCY',"USD");
 define('KEY_TOKEN',"APR.wqc-354*");
-define("MONEDA", "$");
+define('KEY_CIFRADO', 'ABCD.1234-');
+define('METODO_CIFRADO', 'aes-128-cbc');
 
-define("MAIL_HOST", "smtp.gmail.com");
-define("MAIL_USER", "trigoycanelacontacto@gmail.com");
-define("MAIL_PASS", "eenfznhgnvvllssw");
-define("MAIL_PORT", "587");    
+define("MONEDA", $config['tienda_moneda']);
+
+//Configuracion para paypal
+define('CLIENT_ID', $config['paypal_cliente']);
+define('CURRENCY', $config['paypal_moneda']);
+
+//Configuracion para mercado pago
+define('TOKEN_MP',"TEST-4868021780773026-092919-3ef007fb451a838823be741569237ef8-2010936843");
+
+//Datos para envio de correo electronico
+define("MAIL_HOST", $config['correo_smtp']);
+define("MAIL_USER", $config['correo_email']);
+define("MAIL_PASS", descifrar($config['correo_password'],['key' => KEY_CIFRADO,
+'method' => METODO_CIFRADO]));
+define("MAIL_PORT", $config['correo_puerto']);
 
 
 session_start();

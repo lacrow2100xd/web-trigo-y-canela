@@ -1,6 +1,6 @@
 <?php
-require '../config/config.php';
-require '../config/database.php';
+require_once '../config/config.php';
+require_once '../config/database.php';
 
 if(isset($_POST['action'])){
     $action = $_POST['action'];
@@ -14,7 +14,7 @@ if(isset($_POST['action'])){
         }else{
             $datos['ok'] = false;
         }
-        $datos['sub'] = MONEDA . number_format($respuesta, 3, '.',',');
+        $datos['sub'] = MONEDA . number_format($respuesta, 0, '.',',');
 
     }else if($action == 'eliminar'){
         $datos['ok'] = eliminar($id);

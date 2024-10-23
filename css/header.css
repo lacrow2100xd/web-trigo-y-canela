@@ -70,6 +70,22 @@ a.nav-link.btn.rounded-pill:hover {
 }
 
 
+button.btn.rounded-pill.inicioSesion{
+
+    color: rgb(255, 255, 255);
+    padding-left: 16px;
+    padding-right: 16px;
+    font-family: 'TripSans-Medium';
+    background-color: #000000;  
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button.btn.rounded-pill.inicioSesion:hover {
+    color: rgb(255, 255, 255);
+    background-color: #292929;
+}
+
+
 a.btn.rounded-pill.inicioSesion{
 
     color: rgb(255, 255, 255);

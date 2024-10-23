@@ -1,0 +1,42 @@
+
+@font-face {
+    font-family: 'TripSans-Ultra';
+    src: url(fonts/TripSans-Ultra.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Bold';
+    src: url(fonts/TripSans-Bold.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Medium';
+    src: url(fonts/TripSans-Medium.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Regular';
+    src: url(fonts/TripSans-Regular.ttf);
+}
+
+main > .container{
+    padding: 40px 0;
+}
+
+#tituloCompras{
+    font-family: 'TripSans-Medium';
+}
+
+a.btn.btn-warning.buttonCompras{
+    width: 12%; 
+    font-family: 'TripSans-Medium';
+}
+
+div.card-header{
+    font-family: 'TripSans-Medium';
+}
+
+h5.card-title{
+    font-family: 'TripSans-Medium';
+}
+
+p.card-text{
+   font-family: 'TripSans-Regular';
+}

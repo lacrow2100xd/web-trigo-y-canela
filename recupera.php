@@ -1,8 +1,9 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
 <?php
-require 'clases/clienteFunciones.php';
-require 'config/config.php';
-require 'config/database.php';
+
+require_once 'clases/clienteFunciones.php';
+require_once 'config/config.php';
+require_once 'config/database.php';
 $db = new Database();
 $con = $db->conectar();
 
@@ -36,7 +37,7 @@ if(!empty($_POST)){
             $token = solicitaPassword($user_id, $con);
 
             if($token !== null){
-                require 'clases/mailer.php';
+                require_once 'clases/mailer.php';
                 $mailer = new Mailer();
 
                 $url = SITE_URL . '/reset_password.php?id='. $user_id .'&token='.$token;
@@ -127,6 +128,7 @@ if(!empty($_POST)){
                 <i class="fa-solid fa-chevron-left" style="font-size: 1.2rem;"></i> <!-- Tamaño del icono ajustado -->
             </a>
             <h4 id="inicia">Recupera tu contraseña</h4>
+            
         </div>
 
         <form class="row g-3" action="recupera.php" method="post" autocomplete="off">

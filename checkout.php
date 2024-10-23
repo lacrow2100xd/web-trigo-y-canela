@@ -1,6 +1,6 @@
 <?php
-require 'config/config.php';
-require 'config/database.php';
+require_once 'config/config.php';
+require_once 'config/database.php';
 $db = new Database();
 $con = $db->conectar();
 
@@ -34,6 +34,7 @@ if($productos != null){
     <link rel="stylesheet" href="css/checkout.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     
@@ -57,7 +58,7 @@ if($productos != null){
               <a href="index.php" class="nav-link  btn rounded-pill">Inicio</a>
           </li>
           <li class="nav-item">
-              <a href="#" class="nav-link active btn rounded-pill">Productos</a>
+              <a href="productos.php" class="nav-link active btn rounded-pill">Productos</a>
           </li>
           <li class="nav-item">
               <a href="#" class="nav-link btn rounded-pill">Nosotros</a>
@@ -70,9 +71,26 @@ if($productos != null){
           </li>
         </ul>
         
-         <a href="checkout.php" class="btn bg-transparent border border-light position-relative">
+        <a href="checkout.php" class="btn bg-transparent border border-light position-relative me-2">
           <i class="bi bi-bag "></i><span id="num_cart" class="bagde bg-secundary"><?php echo $num_cart?></span>
         </a>
+
+        <?php if(isset($_SESSION['user_id'])){ ?> 
+          <div class="dropdown">
+            <button class="btn rounded-pill inicioSesion dropdown-toggle" type="button" id="btn_session" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa-solid fa-user"></i> 
+              <?php echo $_SESSION['user_name']; ?></a>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btn_session">
+              <a class="dropdown-item" href="logout.php">Cerrar sesión</a>
+              <a class="dropdown-item" href="compras.php">Mis compras</a>
+            </div>
+          </div>
+         
+        <?php } else { ?>
+          <a href="login.php" class="btn rounded-pill inicioSesion"> Iniciar sesión</a>
+        <?php } ?>
+         
         
       </div>
 
@@ -112,14 +130,14 @@ if($productos != null){
                
                 <tr>
                     <td><?php echo $nombre; ?></td>
-                    <td><?php echo MONEDA . number_format($precio_desc, 3, '.', ','); ?></td>
+                    <td><?php echo MONEDA . number_format($precio_desc, 0, '.', ','); ?></td>
                     <td>
                         <input type="number" min="1" max="10" step="1" value="<?php echo $cantidad ?>"
                         size="5" id="cantidad_"<?php echo $_id; ?> onchange="actualizaCantidad(this.value,<?php echo $_id; ?>)">
                     </td>
                     <td>
                         <div id="subtotal_<?php echo $_id; ?>" name="subtotal[]"><?php echo MONEDA . 
-                        number_format($subtotal, 3, '.', ','); ?> </div>
+                        number_format($subtotal, 0, '.', ','); ?> </div>
                     </td>
                     <td><a href="#" id="eliminar" class="btn btn-warning btn-sm" data-bs-id="<?php echo
                     $_id; ?>" data-bs-toggle="modal" data-bs-target="#eliminaModal">Eliminar</a></td>
@@ -131,7 +149,7 @@ if($productos != null){
                     <td colspan="3"></td>
                     <td colspan="2">
                         <p class="h4" id="total">
-                            <?php echo MONEDA . number_format($total, 3, '.', ','); ?>
+                            <?php echo MONEDA . number_format($total, 0, '.', ','); ?>
                         </p>
                     </td>
                 </tr>
@@ -144,7 +162,12 @@ if($productos != null){
         <?php if($lista_carrito != null){ ?>
         <div class="row">
             <div class="col-md-5 offset-md-7 d-grid gap-2">
+                <?php 
+                if(isset($_SESSION['user_cliente'])){?>
                 <a href="pago.php" class="btn btn-lg">Realizar pago</a>
+                <?php } else { ?>
+                    <a href="login.php?pago" class="btn btn-lg">Realizar pago</a>
+                <?php } ?>
             </div>
         </div>
         <?php } ?>
@@ -212,7 +235,7 @@ if($productos != null){
                 }
 
                 total = new Intl.NumberFormat('en-US', {
-                    minimumFractionDigits: 3
+                    minimumFractionDigits: 0
                 }).format(total)
                 document.getElementById('total').innerHTML = '<?php echo MONEDA; ?>' + total
             }
@@ -247,6 +270,13 @@ if($productos != null){
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="../Util/js/jquery.min.js"></script>
 <script src="../Util/js/jquery.validate.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+<!-- Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 
