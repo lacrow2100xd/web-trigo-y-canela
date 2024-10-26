@@ -108,7 +108,7 @@ $categorias = $resultado->fetchAll(PDO::FETCH_ASSOC);
 
 <style>
     .ck-editor__editable[role="textbox"]{
-        min-height: 150px;
+        min-height: 180px;
     }
 </style>          
 
@@ -126,7 +126,7 @@ $categorias = $resultado->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <div class="mb-3">
                 <label for="descripcion" class="form-label mt-2">Descripcion</label>
-                <textarea class="form-control" name="descripcion" id="editor" required ></textarea>
+                <textarea class="form-control" name="descripcion" id="editor" ></textarea>
             </div>
 
             <div class="row mb-2">

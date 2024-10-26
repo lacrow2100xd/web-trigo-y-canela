@@ -78,11 +78,8 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
         <?php } else { ?>
           <a href="login.php" class="btn rounded-pill inicioSesion"> Iniciar sesión</a>
         <?php } ?>
-         
-        
+                 
       </div>
-
-
 
     </div>
   </div>
@@ -96,7 +93,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
           <div class="card shadow-sm ">
             <img src="Img/productos/<?php echo $row['imagen']?>" class="card-img-top img-fluid" alt="Imagen responsiva">
             <div class="card-body"> 
-              <h5 class="card-title"><?php echo $row['nombre']?> </h5>
+              <h5 class="card-title "><?php echo $row['nombre']?> </h5>
               
               <p class="card-text">$<?php echo number_format($row['precio'], 0, '.',',');?></p>
               <div class="d-flex justify-content-between align-items-center">
