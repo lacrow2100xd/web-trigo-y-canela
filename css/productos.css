@@ -59,8 +59,8 @@ div button.btn.rounded-pill.agregar:hover {
 
 main > .container{
     padding: 30px 0;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 99px;
+    padding-right: 99px;
 }
 
 .img-fluid {
@@ -68,3 +68,17 @@ main > .container{
     height: 200px !important;
 }
 
+h5.card-title{
+    font-family: 'TripSans-Medium';
+    letter-spacing: 0px;
+}
+
+p.card-text{
+    font-family: 'TripSans-Regular';
+}
+
+.toast-error {
+    background-color: #ff0000;
+    opacity: 1 !important;
+
+}

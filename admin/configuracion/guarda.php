@@ -2,7 +2,7 @@
 
 require_once '../config/database.php';
 require_once '../config/config.php';
-require_once '../header.php';
+require_once '../layaouts/header.php';
 require_once '../clases/cifrado.php';
 
 $db = new DataBase();
@@ -46,10 +46,38 @@ if($passwordBd != $password){
 ?>
 
 <main>
-    <div class="container-fluid px-4">
-        <h1 class="mt-4">Configuracion actualizada</h1>
-        <a href="index.php" class="btn btn-secondary"> Regresar </a>
-    </div>
+    <div class="container-fluid">
+        <div class="title-wrapper pt-30">
+                <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="title">
+                    <h2>Configuracion actualizada</h2>
+                    </div>
+                </div>
+                <!-- end col -->
+                <div class="col-md-6">
+                    <div class="breadcrumb-wrapper">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="<?php echo ADMIN_URL; ?>inicio.php">Panel de control</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Configuracion
+                        </li>
+                        </ol>
+                    </nav>
+                    </div>
+                </div>
+                <!-- end col -->
+                </div>
+                <!-- end row -->
+        </div>
+        <div class="">
+            
+            <a href="index.php" class="btn btn-secondary"> Regresar </a>
+        </div>
+    </div class="container-fluid">
 </main>
                 
 

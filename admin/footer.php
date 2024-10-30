@@ -1,11 +1,22 @@
-<footer class="py-4 bg-light mt-auto">
-                   
-                </footer>
-           
-</div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>        
+<footer class="footer">
         
-    </body>
+        <!-- end container -->
+      </footer>
+      <!-- ========== footer end =========== -->
+    </main>
+    <!-- ======== main-wrapper end =========== -->
+
+    <!-- ========= All Javascript files linkup ======== -->
+    
+       
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/Chart.min.js"></script>
+    <script src="js/dynamic-pie-chart.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/fullcalendar.js"></script>
+    <script src="js/jvectormap.min.js"></script>
+    <script src="js/world-merc.js"></script>
+    <script src="js/polyfill.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

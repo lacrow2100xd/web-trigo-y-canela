@@ -24,14 +24,10 @@ a {
     cursor: auto;           
 }
 
-a:hover{
-    text-decoration: underline;
-    color: #8c8c8c;
-    cursor: pointer;
-}
+
 
 ol.breadcrumb{
-    padding-top: 45px;
+    padding-top: 30px;
     padding-left: 209px;
     padding-right: 209px;
 }
@@ -39,8 +35,8 @@ ol.breadcrumb{
 
 main > .container{
     padding-top: 3px;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 99px;
+    padding-right: 99px;
 
 }   
 
@@ -51,19 +47,22 @@ li span{
 }
 
 #comprarAhora{
-    background-color: #f2b203;
+    background-color: #34e0a1;  
     font-family: 'TripSans-Medium';
+}
+
+#comprarAhora:hover{
+    background-color: #61e2b3;
 }
 
 #agregarCarrito{
-    border: 2px solid #000000;
-    font-family: 'TripSans-Medium';
-}
-
-#agregarCarrito:hover{
     background-color:   #000000;
     font-family: 'TripSans-Medium';
     color: white;
+}
+
+#agregarCarrito:hover{
+    background-color:   #333333;
 }
 
 small.letraDescuento{
@@ -75,4 +74,74 @@ small.letraDescuento{
 span.lead{
     font-family: 'TripSans-Regular';
     font-size: 5rem;
+}
+
+div#productosRelacionadosCarousel.container.carousel.slide{
+    margin-top: 50px;
+    margin-bottom: 50px;
+ 
+}
+
+.detalles-relacionados{
+    background-color: #f2b203;
+    font-family: 'TripSans-Medium';
+}
+
+.descripcion{
+    font-size: 1.2rem;
+    font-family: 'TripSans-Regular';
+}
+
+.titulo-de-los-detalles-product{
+    font-family: 'TripSans-Bold';
+    font-size: 2.2rem;
+    
+}
+
+.color-del-descuento{
+    color: #a7a7a7;
+}
+
+.precio-product{
+    font-family: 'TripSans-Medium';
+}
+
+.relacionados{
+    font-family: 'TripSans-Medium';
+}
+
+h5.card-title{
+    font-family: 'TripSans-Medium';
+    letter-spacing: 0px;
+}
+
+p.card-text{
+    font-family: 'TripSans-Regular';
+}
+
+#productosRelacionadosCarousel .carousel-control-prev,
+    #productosRelacionadosCarousel .carousel-control-next {
+        width: 15%; /* Reduce el ancho del botón */
+        top: 50%; /* Centra verticalmente */
+        transform: translateY(-50%); /* Alinea perfectamente al centro */
+    }
+
+    /* Ajusta la posición para que los botones estén fuera del área de los cards */
+    #productosRelacionadosCarousel .carousel-control-prev {
+        left: -2%; /* Mueve a la izquierda fuera del contenedor */
+    }
+
+    #productosRelacionadosCarousel .carousel-control-next {
+        right: -2%; /* Mueve a la derecha fuera del contenedor */
+    }
+
+    /* Estilo para los íconos de navegación */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        filter: invert(49%) sepia(85%) saturate(575%) hue-rotate(89deg) brightness(91%) contrast(93%); /* Cambia el color */
+    }
+.toast-error {
+    background-color: #ff0000;
+    opacity: 1 !important;
+
 }

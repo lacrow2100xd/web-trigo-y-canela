@@ -1,9 +1,7 @@
     <?php
 
-
     require_once '../config/database.php';
     require_once '../config/config.php';
-
 
     if(!isset($_SESSION['user_type'])){
         header('Location: ../index.php');

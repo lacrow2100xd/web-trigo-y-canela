@@ -10,16 +10,14 @@ $productos = isset($_SESSION['carrito']['productos']) ? $_SESSION['carrito']['pr
 $lista_carrito = array();
 
 if($productos != null){
-    foreach($productos as $clave => $cantidad){
+    foreach($productos as $clave => $producto){
 
-        $sql = $con->prepare("SELECT id, nombre, imagen, precio, descuento, $cantidad AS cantidad FROM productos WHERE 
+        $sql = $con->prepare("SELECT id, nombre, imagen, precio, descuento, $producto AS cantidad FROM productos WHERE 
         id=? AND activo=1");
         $sql->execute([$clave]);
         $lista_carrito[] = $sql->fetch(PDO::FETCH_ASSOC);
-
     }
 }
-
 
 ?>
 
@@ -31,10 +29,12 @@ if($productos != null){
     <title>Trigo y canela</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/checkout.css">
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="css/checkout.css">
 </head>
 <body>
     
@@ -133,14 +133,14 @@ if($productos != null){
                     <td><?php echo MONEDA . number_format($precio_desc, 0, '.', ','); ?></td>
                     <td>
                         <input type="number" min="1" max="10" step="1" value="<?php echo $cantidad ?>"
-                        size="5" id="cantidad_"<?php echo $_id; ?> onchange="actualizaCantidad(this.value,<?php echo $_id; ?>)">
+                        size="5" id="cantidad_<?php echo $_id;?>" onchange="actualizaCantidad(this.value,<?php echo $_id; ?>)">
                     </td>
                     <td>
                         <div id="subtotal_<?php echo $_id; ?>" name="subtotal[]"><?php echo MONEDA . 
                         number_format($subtotal, 0, '.', ','); ?> </div>
                     </td>
                     <td><a href="#" id="eliminar" class="btn btn-warning btn-sm" data-bs-id="<?php echo
-                    $_id; ?>" data-bs-toggle="modal" data-bs-target="#eliminaModal">Eliminar</a></td>
+                    $_id; ?>" data-bs-toggle="modal" data-bs-target="#eliminaModal"><i class="fa-solid fa-trash-can"></i></a></td>
                     
                 </tr>
                 <?php } ?>
@@ -238,6 +238,10 @@ if($productos != null){
                     minimumFractionDigits: 0
                 }).format(total)
                 document.getElementById('total').innerHTML = '<?php echo MONEDA; ?>' + total
+            }else{
+                let inputCantidad = document.getElementById('cantidad_' + id)
+                inputCantidad.value = data.cantidadAnterior
+                toastr.error('No hay existencias disponibles');
             }
         })
     }
@@ -268,9 +272,8 @@ if($productos != null){
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script src="../Util/js/jquery.min.js"></script>
-<script src="../Util/js/jquery.validate.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+
 
 <!-- Popper.js -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

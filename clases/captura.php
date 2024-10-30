@@ -52,7 +52,9 @@
 
                     $sql = $con->prepare("INSERT INTO detalle_compra (id_compra, id_producto, nombre,
                     cantidad, precio) VALUES(?,?,?,?,?)");
-                    $sql->execute([$id, $row_prod['id'], $row_prod['nombre'], $cantidad, $precio_desc]);
+                    if($sql->execute([$id, $row_prod['id'], $row_prod['nombre'], $cantidad, $precio_desc])){
+                        restarStock($row_prod['id'], $cantidad, $con);
+                    }
                     
             
                 }
@@ -67,4 +69,10 @@
             }
             unset($_SESSION['carrito']);
         }
+    }
+
+    function restarStock($id, $cantidad, $con){
+        $sql = $con->prepare("UPDATE productos set stock = stock - ? WHERE id = ?");
+        $sql->execute([$cantidad, $id]);
+
     }

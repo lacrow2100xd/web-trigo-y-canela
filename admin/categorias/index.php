@@ -15,7 +15,7 @@ if($_SESSION['user_type'] != 'admin'){
     exit;
 }
 
-require_once '../header.php';
+require_once '../layaouts/header.php';
 
 $db = new DataBase();
 $con = $db->conectar();
@@ -28,49 +28,82 @@ $categorias = $resultado->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <main>
-    <div class="container-fluid px-4">
-        <h2 class="mt-4">Categorias</h2>
-
-        <a href="nuevo.php" class="btn btn-primary mt-2">Nuevo</a>
-
-        <div
-            class="table-responsive mt-4"
-        >
-            <table
-                class="table table-hover"
-            >
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                   <?php foreach($categorias as $categoria){ ?>
-                    <tr>
-                        <td><?php echo $categoria['id']; ?></td>
-                        <td><?php echo $categoria['nombre']; ?><td>
-                        <td><a class="btn btn-warning btn-sm" href="edita.php?id=<?php echo $categoria['id']; ?>">Editar</a><td>
-                        <td>
-                        <button
-                            type="button"
-                            class="btn btn-danger btn-sm"
-                            data-bs-toggle="modal"
-                            data-bs-target="#modalElimina" data-bs-id="<?php echo $categoria['id']; ?>">
-                            Eliminar
-                        </button>    
-                        
-                        <td>
-                    </tr>
-                    <?php } ?>
-                   
-                </tbody>
-            </table>
+    <div class="container-fluid">
+        <div class="title-wrapper pt-30">
+                <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="title">
+                    <h2>Categorias</h2>
+                    </div>
+                </div>
+                <!-- end col -->
+                <div class="col-md-6">
+                    <div class="breadcrumb-wrapper">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="<?php echo ADMIN_URL; ?>inicio.php">Panel de control</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Categorias
+                        </li>
+                        </ol>
+                    </nav>
+                    </div>
+                </div>
+                <!-- end col -->
+                </div>
+                <!-- end row -->
         </div>
-        
+        <div class="card-style">
 
+            <a href="nuevo.php" class="btn btn-primary mt-4">Nuevo</a>
+
+            <div
+                class="table-responsive mt-4 tables-wrapper"
+            >
+                <table
+                    class="table table-hover"
+                >
+                    <thead>
+                        <tr>
+                            <th scope="col"><h6>Id</h6></th>
+                            <th scope="col"><h6>Nombre</h6></th>
+                            <th scope="col"><h6>Editar</h6></th>
+                            <th scope="col"><h6>Eliminar</h6></th>
+                
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($categorias as $categoria){ ?>
+                        <tr>
+                            <td><p><?php echo $categoria['id']; ?></p></td>
+                            <td><p><?php echo $categoria['nombre']; ?></p></td>
+                            <td>
+                                <a class="btn btn-warning" href="edita.php?id=<?php echo $categoria['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                            
+                            </td>
+                            <td>  
+                                <button
+                                type="button"
+                                class="text-white btn btn-danger"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalElimina" data-bs-id="<?php echo $categoria['id']; ?>">
+                                <i class="lni lni-trash-can"></i>
+                                </button>   
+                            </td>
+                        
+                        
+                        </tr>
+                        <?php } ?>
+                    
+                    </tbody>
+                </table>
+            </div>
+            
+
+        </div>
     </div>
 </main>
 

@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'TripSans-Ultra';
+    src: url(../../css/fonts/TripSans-Ultra.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Bold';
+    src: url(../../css/fonts/TripSans-Bold.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Medium';
+    src: url(../../css/fonts/TripSans-Medium.ttf);
+}
+@font-face {
+    font-family: 'TripSans-Regular';
+    src: url(../../css/fonts/TripSans-Regular.ttf);
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+.navbar-logo img {
+    margin-right: 5px; /* Ajusta el espacio entre la imagen y el texto */
+}
+
+strong {
+    font-family: 'TripSans-Bold';
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -1px;
+    color: black !important;
+}
+
+.navbar-logo img,
+.navbar-logo strong {
+    display: inline-block;
+    vertical-align: middle;
+}
+

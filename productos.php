@@ -4,6 +4,8 @@ require_once 'config/database.php';
 $db = new Database();
 $con = $db->conectar();
 
+$showSweetAlert = false;    
+
 $sql = $con->prepare("SELECT id, nombre, imagen, precio FROM productos WHERE activo=1");
 $sql->execute();
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -18,10 +20,14 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     <title>Trigo y canela</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/productos.css">
     <link rel="stylesheet" href="css/estilos.footer.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="css/productos.css">
+    
     
 </head>
 <body>
@@ -111,10 +117,9 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
       </div>
     </div>
 
+    
+
 </main>
-
-
-
 
 <script>
 
@@ -132,7 +137,9 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
         .then(data =>{
             if(data.ok){
                 let elemento = document.getElementById("num_cart")
-                elemento.innerHTML = data.numero
+                elemento.innerHTML = data.numero;
+            }else{ 
+              toastr.error('No hay existencias disponibles');
             }
         })
     }
@@ -155,6 +162,13 @@ include("footer.php");
 
 <!-- Bootstrap JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
 
 </body>
 

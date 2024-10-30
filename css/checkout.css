@@ -37,4 +37,8 @@ td{
 a#eliminar.btn.btn-warning.btn-sm{
     font-family: 'TripSans-Medium';
 }
+.toast-error {
+    background-color: #ff0000;
+    opacity: 1 !important;
+}
 
