@@ -8,6 +8,7 @@ $con = $db->conectar();
 
 $token =generarToken();
 $_SESSION['token'] = $token;
+
 $idCliente = $_SESSION['user_cliente'];
 
 $sql = $con->prepare("SELECT id_transaccion, fecha, status, total FROM compra WHERE id_cliente = ? ORDER BY DATE(fecha) DESC");

@@ -37,9 +37,7 @@ function mostrarMensajes(array $errors){
             echo '<li>'. $error . '</li>';
         }
         echo '</ul>';
-        echo ' <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button></div>';
+        echo '</div>';
     }
 }
 
@@ -117,3 +115,9 @@ function verificaTokenRequest($user_id, $token, $con){
     return false;
 }
 
+function validaPassword($password, $repassword){
+    if(strcmp($password, $repassword) === 0){
+        return true;
+    }
+    return false;
+}

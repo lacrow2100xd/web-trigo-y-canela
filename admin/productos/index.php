@@ -56,7 +56,7 @@ $productos = $resultado->fetchAll(PDO::FETCH_ASSOC);
                 <!-- end row -->
         </div>
         <div class="card-style">    
-            <a href="nuevo.php" class="btn btn-primary mt-2">Nuevo</a>
+            <a href="nuevo.php" class="btn btn-primary mt-4">Nuevo</a>
 
             <div
                 class="table-responsive mt-4"

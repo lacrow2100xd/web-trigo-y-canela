@@ -26,7 +26,7 @@
     <aside class="sidebar-nav-wrapper">
         <div class="navbar-logo d-flex align-items-center">
             <a href="index.html" class="d-flex align-items-center">
-            <img src="../Img/Diseño_sin_título__1_-removebg-preview.png" height="40" width="40" alt="logo" /><strong class="navbar-text">Trigo y canela</strong>
+            <img src="../Img/Diseño_sin_título__1_-removebg-preview.png" height="40" width="40" alt="logo" /><strong class="navbar-text strong-logo">Trigo y canela</strong>
             </a>
         </div>
       <nav class="sidebar-nav">
@@ -53,7 +53,7 @@
             </a>
             <ul id="ddmenu_1" class="collapse dropdown-nav">
               <li>
-                <a href="index.html"> eCommerce </a>
+                <a href="inicio.php"> Comercio electrónico </a>
               </li>
             </ul>
           </li>
@@ -64,6 +64,14 @@
                     <i class="fa-solid fa-gear"></i>
                   </span>
                   <span class="text">Configuracion</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?php echo ADMIN_URL; ?>usuarios">
+                <span class="icon">
+                <i class="fa-solid fa-user"></i>
+                </span>
+                &nbsp;<span class="text">Usuarios</span>
                 </a>
             </li>
             
@@ -84,13 +92,14 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="<?php echo ADMIN_URL; ?>articulos">
+                <a href="<?php echo ADMIN_URL; ?>compras">
                 <span class="icon">
-                <i class="fa-solid fa-newspaper"></i>
+                <i class="fa-solid fa-bag-shopping"></i>
                 </span>
-                <span class="text">Articulos</span>
+                <span class="text">Compras</span>
                 </a>
             </li>
+           
         
         </ul>
       </nav>
@@ -129,11 +138,12 @@
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="profile-info">
                       <div class="info">
-                        <div class="image">
-                          <img src="images/profile/profile-image.png" alt="" />
-                        </div>
+                      <div class="image" style="width: 40px; height: 40px; border-radius: 50%; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                    <!-- Ajustando el tamaño del ícono -->
+                    <i class="fas fa-user" style="font-size: 25px;"></i>
+                </div>
                         <div>
-                          <h6 class="fw-500">Adam Joe</h6>
+                          <h6 class="fw-500"><?php echo $_SESSION['user_name'];?></h6>
                           <p>Admin</p>
                         </div>
                       </div>
@@ -142,8 +152,9 @@
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
                     <li>
                       <div class="author-info flex items-center !p-1">
-                        <div class="image">
-                          <img src="images/profile/profile-image.png" alt="image">
+                        
+                        <div class="image" style="width: 30px; height: 30px; border-radius: 50%; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-user" style="font-size: 20px;"></i>
                         </div>
                         <div class="content">
                           <h4 class="text-sm">Adam Joe</h4>

@@ -4,18 +4,6 @@ require_once 'config/database.php';
 $db = new Database();
 $con = $db->conectar();
 
-$sql = $con->prepare("SELECT id, nombre, 
-       CASE 
-           WHEN CHAR_LENGTH(valor) > 120 THEN 
-               TRIM(SUBSTRING(valor, 1, LOCATE(' ', valor, 120) - 1)) 
-           ELSE 
-               valor 
-       END AS valor, 
-       imagen 
-FROM articulos 
-WHERE activo = 1;");
-$sql->execute();
-$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -228,34 +216,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </div>
 
-<div class="container custom-container3">
-    <div class="row align-items-center custom-row">
-        <div class="col-12">
-            <h2 class="titulos text-center">Blog de pastelería y repostería</h2>
-           
-            <p class="text-center mt-3">Descubre deliciosas recetas de pastelería fáciles de preparar, recomendaciones gastronómicas y entretenidas historias sobre el origen de tus postres o tortas favoritas.</p>
-        </div>
 
-    </div>
-</div>
-<div class="container custom-container5 mb-5">
-    <div class="row custom-row">
-        <?php foreach($resultado as $row) { ?>
-            <div class="col-md-4 d-flex">
-                <div class="card flex-fill">
-                    <img src="Img/articulos/<?php echo $row['imagen']?>.jpg" class="card-img-top" alt="Imagen <?php echo $row['nombre']?>">
-                    <div class="card-body d-flex flex-column"> <!-- d-flex y flex-column -->
-                        <h5 class="card-title"><?php echo $row['nombre']?></h5>
-                        <p class="card-text"><?php echo substr($row['valor'], 0, 100) . '...'; ?></p>
-                        <div class="mt-auto"> <!-- mt-auto para empujar hacia abajo -->
-                            <a href="#" class="btn btn-warning">Ver más »</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
-    </div>
-</div>
 
 
 

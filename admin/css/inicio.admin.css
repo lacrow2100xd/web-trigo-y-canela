@@ -23,7 +23,7 @@
     margin-right: 5px; /* Ajusta el espacio entre la imagen y el texto */
 }
 
-strong {
+.strong-logo{
     font-family: 'TripSans-Bold';
     font-weight: 400;
     font-size: 22px;
@@ -37,3 +37,11 @@ strong {
     vertical-align: middle;
 }
 
+p.color{
+    color:black;
+}
+
+.tamañoigual{
+    width: 41.6px;
+    height: 37.6px;
+}

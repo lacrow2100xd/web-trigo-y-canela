@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon" />
     <title>Blank Page | PlainAdmin Demo</title>
-
+    <link rel="stylesheet" href="<?php echo ADMIN_URL; ?>css/inicio.admin.css" />
     <link rel="stylesheet" href="<?php echo ADMIN_URL; ?>css/bootstrap.min.css" />
     <link rel="stylesheet" href="<?php echo ADMIN_URL; ?>css/lineicons.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="<?php echo ADMIN_URL; ?>css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="<?php echo ADMIN_URL; ?>css/fullcalendar.css" />
     <link rel="stylesheet" href="<?php echo ADMIN_URL; ?>css/main.css" />
-    <link rel="stylesheet" href="<?php echo ADMIN_URL; ?>css/inicio.admin.css" />
+    
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    
 
 
     
@@ -29,7 +31,7 @@
        
           <div class="navbar-logo d-flex align-items-center">
               <a href="../inicio.php" class="d-flex align-items-center">
-                <img src="../../Img/Diseño_sin_título__1_-removebg-preview.png" height="40" width="40" alt="logo" /><strong class="navbar-text">Trigo y canela</strong>
+                <img src="../../Img/Diseño_sin_título__1_-removebg-preview.png" height="40" width="40" alt="logo" /><strong class="navbar-text strong-logo">Trigo y canela</strong>
               </a>
           </div>
        
@@ -57,7 +59,7 @@
             </a>
             <ul id="ddmenu_1" class="collapse dropdown-nav">
               <li>
-                <a href="index.html"> eCommerce </a>
+                <a href="../inicio.php"> Comercio electrónico </a>
               </li>
             </ul>
           </li>
@@ -68,6 +70,14 @@
                     <i class="fa-solid fa-gear"></i>
                   </span>
                   <span class="text">Configuracion</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?php echo ADMIN_URL; ?>usuarios">
+                <span class="icon">
+                <i class="fa-solid fa-user"></i>
+                </span>
+                &nbsp;<span class="text">Usuarios</span>
                 </a>
             </li>
             
@@ -87,6 +97,15 @@
                 <span class="text">Productos</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="<?php echo ADMIN_URL; ?>compras">
+                <span class="icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+                </span>
+                <span class="text">Compras</span>
+                </a>
+            </li>
+          
         
         </ul>
       </nav>
@@ -128,7 +147,7 @@
                     <i class="fas fa-user" style="font-size: 25px;"></i>
                 </div>
                 <div>
-                    <h6 class="fw-500">Adam Joe</h6>
+                    <h6 class="fw-500"><?php echo $_SESSION['user_name'];?></h6>
                     <p>Admin</p>
                 </div>
             </div>

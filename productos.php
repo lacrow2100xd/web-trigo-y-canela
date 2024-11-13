@@ -6,9 +6,35 @@ $con = $db->conectar();
 
 $showSweetAlert = false;    
 
-$sql = $con->prepare("SELECT id, nombre, imagen, precio FROM productos WHERE activo=1");
-$sql->execute();
+$idCategoria = $_GET['cat'] ?? '';
+$orden = $_GET['orden'] ?? '';
+
+$orders = [
+  'asc' => 'nombre ASC',
+  'desc' => 'nombre DESC',
+  'precio_alto' => 'precio DESC',
+  'precio_bajo' => 'precio ASC',
+];
+
+$order = $orders[$orden] ?? '';
+
+if(!empty($order)){
+  $order = "ORDER BY $order";
+}
+
+
+if(!empty($idCategoria)){
+  $sql = $con->prepare("SELECT id, nombre, imagen, precio FROM productos WHERE activo=1 AND id_categoria = ? $order");
+  $sql->execute([$idCategoria]);
+}else{
+  $sql = $con->prepare("SELECT id, nombre, imagen, precio FROM productos WHERE activo=1 $order");
+  $sql->execute();
+}
 $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+$sqlCategorias = $con->prepare("SELECT id, nombre FROM categorias WHERE activo=1");
+$sqlCategorias->execute();
+$categorias = $sqlCategorias->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -93,27 +119,69 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 <main>
     <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" id="productos_a_mostrar">
-        <?php foreach($resultado as $row) {?>
-        <div class="col ">
-          <div class="card shadow-sm ">
-            <img src="Img/productos/<?php echo $row['imagen']?>" class="card-img-top img-fluid" alt="Imagen responsiva">
-            <div class="card-body"> 
-              <h5 class="card-title "><?php echo $row['nombre']?> </h5>
-              
-              <p class="card-text">$<?php echo number_format($row['precio'], 0, '.',',');?></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                <a href="detalles.php?id=<?php echo $row['id']; ?>&token=<?php echo
-                hash_hmac('sha1',$row['id'],KEY_TOKEN); ?>" class="btn rounded-pill detalles">Detalles</a>
-                </div>
-                <button class="btn rounded-pill agregar" id="agregarCarrito" type="button" onclick="addProducto(<?php 
-                    echo $row['id']; ?>, '<?php echo hash_hmac('sha1',$row['id'],KEY_TOKEN); ?>')">Agregar</button>                         
-              </div>          
+      <div class="row"> 
+        <div class="col-2-5 margin-del-filtro">
+          <div class="card shadow-sm"  style="border-radius: 0;">
+            <div class="card-header">
+              Categorias
             </div>
-          </div>         
-        </div>  
-        <?php } ?>
+            <div class="list-group">
+              <?php foreach($categorias as $categoria) {?>
+                <a href="productos.php?cat=<?php echo $categoria['id'];?>" class="list-group-item list-group-item-action">
+                  <?php echo $categoria['nombre'];?>
+                </a>
+                
+              <?php } ?>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-9-5">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3 justify-content-end g-4">
+            <div class="col mb-2">
+                <form action="productos.php" id="ordenForm" method="get" class="d-flex align-items-center flex-nowrap">
+                    <input type="hidden" name="cat" id="cat" value="<?php echo $idCategoria; ?>">
+
+                    
+                    <select name="orden" id="cbx-order" class="form-select form-select-sm" onchange="submitForm()">
+                        <option value="">Ordenar por</option>
+                        <option value="precio_alto" <?php echo ($orden == 'precio_alto') ? 'selected' : ''; ?>>Precios más altos</option>
+                        <option value="precio_bajo" <?php echo ($orden == 'precio_bajo') ? 'selected' : ''; ?>>Precios más bajos</option>
+                        <option value="asc" <?php echo ($orden == 'asc') ? 'selected' : ''; ?>>Nombre A-Z</option>
+                        <option value="desc" <?php echo ($orden == 'desc') ? 'selected' : ''; ?>>Nombre Z-A</option>
+                    </select>
+                </form>
+              </div>
+            </div>
+
+
+       
+       
+
+        <div class="col-9-5">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3" id="productos_a_mostrar">
+            <?php foreach($resultado as $row) {?>
+            <div class="col mb-2 clase-especial">
+              <div class="card shadow-sm " id="card-productos">
+                <img src="Img/productos/<?php echo $row['imagen']?>" class="card-img-top img-fluid" id="card-img-top-productos" alt="Imagen responsiva">
+                <div class="card-body" id="card-body-productos"> 
+                  <h5 class="card-title "><?php echo $row['nombre']?> </h5>
+                  
+                  <p class="card-text">$<?php echo number_format($row['precio'], 0, '.',',');?></p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                    <a href="detalles.php?id=<?php echo $row['id']; ?>&token=<?php echo
+                    hash_hmac('sha1',$row['id'],KEY_TOKEN); ?>" class="btn rounded-pill detalles">Detalles</a>
+                    </div>
+                    <button class="btn rounded-pill agregar" id="agregarCarrito" type="button" onclick="addProducto(<?php 
+                        echo $row['id']; ?>, '<?php echo hash_hmac('sha1',$row['id'],KEY_TOKEN); ?>')">Agregar</button>                         
+                  </div>          
+                </div>
+              </div>         
+            </div>  
+            <?php } ?>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -142,6 +210,10 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
               toastr.error('No hay existencias disponibles');
             }
         })
+    }
+
+    function submitForm(){
+      document.getElementById('ordenForm').submit();
     }
 
 </script>

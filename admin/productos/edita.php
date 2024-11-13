@@ -53,9 +53,6 @@ $rutaImagenes = '../../Img/productos/';
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.css" />
-
-
-
     
   </head>
   <body>
@@ -65,13 +62,11 @@ $rutaImagenes = '../../Img/productos/';
 
     <!-- ======== sidebar-nav start =========== -->
     <aside class="sidebar-nav-wrapper">
-       
-          <div class="navbar-logo d-flex align-items-center">
-              <a href="../inicio.php" class="d-flex align-items-center">
-                <img src="../../Img/Diseño_sin_título__1_-removebg-preview.png" height="40" width="40" alt="logo" /><strong class="navbar-text">Trigo y canela</strong>
-              </a>
-          </div>
-       
+        <div class="navbar-logo d-flex align-items-center">
+            <a href="index.html" class="d-flex align-items-center">
+            <img src="../../Img/Diseño_sin_título__1_-removebg-preview.png" height="40" width="40" alt="logo" /><strong class="navbar-text strong-logo">Trigo y canela</strong>
+            </a>
+        </div>
       <nav class="sidebar-nav">
         <ul>
           <li class="nav-item nav-item-has-children">
@@ -96,7 +91,7 @@ $rutaImagenes = '../../Img/productos/';
             </a>
             <ul id="ddmenu_1" class="collapse dropdown-nav">
               <li>
-                <a href="index.html"> eCommerce </a>
+                <a href="inicio.php"> Comercio electrónico </a>
               </li>
             </ul>
           </li>
@@ -107,6 +102,14 @@ $rutaImagenes = '../../Img/productos/';
                     <i class="fa-solid fa-gear"></i>
                   </span>
                   <span class="text">Configuracion</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<?php echo ADMIN_URL; ?>usuarios">
+                <span class="icon">
+                <i class="fa-solid fa-user"></i>
+                </span>
+                &nbsp;<span class="text">Usuarios</span>
                 </a>
             </li>
             
@@ -126,6 +129,15 @@ $rutaImagenes = '../../Img/productos/';
                 <span class="text">Productos</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="<?php echo ADMIN_URL; ?>compras">
+                <span class="icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+                </span>
+                <span class="text">Compras</span>
+                </a>
+            </li>
+           
         
         </ul>
       </nav>
@@ -158,59 +170,60 @@ $rutaImagenes = '../../Img/productos/';
                 <!-- message start -->
                 
                 <!-- message end -->
+                <!-- profile start -->
                 <div class="profile-box ml-15">
-    <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile" data-bs-toggle="dropdown" aria-expanded="false">
-        <div class="profile-info">
-            <div class="info">
-                <div class="image" style="width: 40px; height: 40px; border-radius: 50%; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                    <!-- Ajustando el tamaño del ícono -->
-                    <i class="fas fa-user" style="font-size: 25px;"></i>
+                  <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="profile-info">
+                      <div class="info">
+                        <div class="image">
+                          <img src="../images/profile/profile-image.png" alt="" />
+                        </div>
+                        <div>
+                          <h6 class="fw-500">Adam Joe</h6>
+                          <p>Admin</p>
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
+                    <li>
+                      <div class="author-info flex items-center !p-1">
+                        <div class="image">
+                          <img src="images/profile/profile-image.png" alt="image">
+                        </div>
+                        <div class="content">
+                          <h4 class="text-sm">Adam Joe</h4>
+                          <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs"
+                            href="#">Email@gmail.com</a>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                      <a href="#0">
+                        <i class="lni lni-user"></i> View Profile
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#0"> <i class="lni lni-cog"></i> Settings </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                      <a href="#0"> <i class="lni lni-exit"></i> Sign Out </a>
+                    </li>
+                  </ul>
                 </div>
-                <div>
-                    <h6 class="fw-500">Adam Joe</h6>
-                    <p>Admin</p>
-                </div>
-            </div>
-        </div>
-    </button>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
-        <li>
-            <div class="author-info flex items-center !p-1">
-                <div class="image" style="width: 30px; height: 30px; border-radius: 50%; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                    <!-- Ajustando el tamaño del ícono -->
-                    <i class="fas fa-user" style="font-size: 20px;"></i>
-                </div>
-                <div class="content">
-                    <h4 class="text-sm">Adam Joe</h4>
-                    <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs" href="#">Email@gmail.com</a>
-                </div>
-            </div>
-        </li>
-        <li class="divider"></li>
-        <li>
-            <a href="#0">
-                <i class="lni lni-user"></i> View Profile
-            </a>
-        </li>
-        <li>
-            <a href="#0"> <i class="lni lni-cog"></i> Settings </a>
-        </li>
-        <li class="divider"></li>
-        <li>
-            <a href="#0"> <i class="lni lni-exit"></i> Sign Out </a>
-        </li>
-    </ul>
-</div>
-
-
-
-
-
+                <!-- profile end -->
               </div>
             </div>
           </div>
         </div>
       </header>
+
+
+
 
 <style>
     .ck-editor__editable[role="textbox"]{

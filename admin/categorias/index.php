@@ -70,9 +70,7 @@ $categorias = $resultado->fetchAll(PDO::FETCH_ASSOC);
                             <th scope="col"><h6>Id</h6></th>
                             <th scope="col"><h6>Nombre</h6></th>
                             <th scope="col"><h6>Editar</h6></th>
-                            <th scope="col"><h6>Eliminar</h6></th>
-                
-                            
+                            <th scope="col"><h6>Eliminar</h6></th>        
                         </tr>
                     </thead>
                     <tbody>

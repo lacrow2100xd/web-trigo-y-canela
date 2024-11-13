@@ -63,9 +63,7 @@ $con = $db->conectar();
                         required autofocus
                     />
                 </div>
-                <div class="mb-3">
-                  <input type="date" class="form-control" readonly>
-                </div>
+                
                 <button type="submit" class="btn btn-primary" required>  Guardar
                 </button>
                 

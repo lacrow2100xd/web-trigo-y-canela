@@ -59,8 +59,7 @@ div button.btn.rounded-pill.agregar:hover {
 
 main > .container{
     padding: 30px 0;
-    padding-left: 99px;
-    padding-right: 99px;
+ 
 }
 
 .img-fluid {
@@ -81,4 +80,36 @@ p.card-text{
     background-color: #ff0000;
     opacity: 1 !important;
 
+}
+
+.col-9-5 {
+    flex-basis: 79.1666%;
+}
+
+.col-2-5 {
+    flex-basis: 20.8333%;
+}
+
+#card-productos {
+    display: flex;
+    flex-direction: column;
+    width: 250px; /* Ajusta el ancho de la card a tus necesidades */
+    height: 367px !important; /* Ajusta la altura de la card a tus necesidades */
+}
+  
+#card-body-productos {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#card-img-top-productos {
+    height: 200px !important; /* Ajusta la altura de la imagen a tus necesidades */
+    width: 100%;
+    object-fit: cover; /* Esto asegura que la imagen se recorte y ajuste */
+}
+
+.margin-del-filtro{
+    margin-top: 2.5rem;
 }
