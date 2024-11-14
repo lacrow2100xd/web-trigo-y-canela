@@ -4,6 +4,7 @@ require_once 'config/database.php';
 require_once 'config/config.php';
 
 
+
 if(!isset($_SESSION['user_type'])){
     header('Location: index.php');
     exit;
@@ -220,7 +221,7 @@ if ($totalMesAnterior > 0) {
                 <i class="fa-solid fa-cart-flatbed"></i>
                 </div>
                 <div class="content">
-                  <h6 class="mb-10">Total en inventario</h6>
+                  <h6 class="mb-10">Productos en stock</h6>
                   <h3 class="text-bold mb-10"><?php echo $totalStock['total_stock'];?></h3>
                   <p class="text-sm text-danger">
                     

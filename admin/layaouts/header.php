@@ -154,32 +154,30 @@
         </div>
     </button>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
-        <li>
-            <div class="author-info flex items-center !p-1">
-                <div class="image" style="width: 30px; height: 30px; border-radius: 50%; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                    <!-- Ajustando el tamaño del ícono -->
-                    <i class="fas fa-user" style="font-size: 20px;"></i>
-                </div>
-                <div class="content">
-                    <h4 class="text-sm">Adam Joe</h4>
-                    <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs" href="#">Email@gmail.com</a>
-                </div>
-            </div>
-        </li>
-        <li class="divider"></li>
-        <li>
-            <a href="#0">
-                <i class="lni lni-user"></i> View Profile
-            </a>
-        </li>
-        <li>
-            <a href="#0"> <i class="lni lni-cog"></i> Settings </a>
-        </li>
-        <li class="divider"></li>
-        <li>
-            <a href="#0"> <i class="lni lni-exit"></i> Sign Out </a>
-        </li>
-    </ul>
+                    <li>
+                      <div class="author-info flex items-center !p-1">
+                        
+                        <div class="image" style="width: 30px; height: 30px; border-radius: 50%; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-user" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="content">
+                          <h4 class="text-sm"><?php echo $_SESSION['user_name'];?></h4>
+                          <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs"
+                            href="#"><?php echo $_SESSION['user_email'];?></a>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                      <a href="#0">
+                        <i class="lni lni-user"></i> View Profile
+                      </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                      <a href="../logout.php"> <i class="lni lni-exit"></i> Cerrar sesión</a>
+                    </li>
+                  </ul>
 </div>
 
 

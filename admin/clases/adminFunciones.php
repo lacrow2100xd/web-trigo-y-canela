@@ -67,7 +67,11 @@ function activarUsuario($id, $con){
 
 
 function login($usuario,$password,$con){
-    $sql = $con->prepare("SELECT id, usuario, password, nombre FROM admin WHERE usuario LIKE ? AND activo=1 LIMIT 1");
+    $sql = $con->prepare("SELECT id, usuario, password, nombre, SUBSTRING_INDEX(email, '@', 1) AS email
+        FROM admin 
+        WHERE usuario LIKE ? 
+        AND activo = 1 
+        LIMIT 1");
     $sql->execute([$usuario]);
 
     if($row = $sql->fetch(PDO::FETCH_ASSOC)){
@@ -75,6 +79,7 @@ function login($usuario,$password,$con){
         if(password_verify($password, $row['password'])){
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['user_name'] = $row['nombre'];
+            $_SESSION['user_email'] = $row['email'];
             $_SESSION['user_type'] = 'admin';
             header("Location: inicio.php");
             exit;    

@@ -1,3 +1,7 @@
+<?php
+require_once 'clases/adminFunciones.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -157,9 +161,9 @@
                         <i class="fas fa-user" style="font-size: 20px;"></i>
                         </div>
                         <div class="content">
-                          <h4 class="text-sm">Adam Joe</h4>
+                          <h4 class="text-sm"><?php echo $_SESSION['user_name'];?></h4>
                           <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs"
-                            href="#">Email@gmail.com</a>
+                            href="#"><?php echo $_SESSION['user_email'];?></a>
                         </div>
                       </div>
                     </li>
@@ -169,13 +173,9 @@
                         <i class="lni lni-user"></i> View Profile
                       </a>
                     </li>
-
-                    <li>
-                      <a href="#0"> <i class="lni lni-cog"></i> Settings </a>
-                    </li>
                     <li class="divider"></li>
                     <li>
-                      <a href="#0"> <i class="lni lni-exit"></i> Sign Out </a>
+                      <a href="logout.php"> <i class="lni lni-exit"></i> Cerrar sesión</a>
                     </li>
                   </ul>
                 </div>
